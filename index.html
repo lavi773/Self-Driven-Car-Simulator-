@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI Self-Driving Car Simulator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="hero" id="home">
+    <div class="hero-content">
+      <h1>Autonomous Drive Lab</h1>
+      <p>Interactive AI-themed simulation for self-driving decision making.</p>
+      <a class="neon-btn" href="#simulation">Launch Simulation</a>
+    </div>
+  </header>
+
+  <nav class="top-nav">
+    <a href="#home">Home</a>
+    <a href="#simulation">Simulation</a>
+    <a href="#how">How It Works</a>
+    <a href="#about">About Project</a>
+  </nav>
+
+  <main>
+    <section id="simulation" class="panel simulation-panel">
+      <h2>Self-Driving Car Simulation</h2>
+      <div class="controls">
+        <button id="startStopBtn" class="neon-btn">Start Simulation</button>
+        <label>Speed
+          <input id="speedSlider" type="range" min="20" max="140" value="70" />
+          <span id="speedValue">70 km/h</span>
+        </label>
+        <label class="toggle-wrap">
+          <input type="checkbox" id="toggleObstacles" checked />
+          <span>Obstacles Enabled</span>
+        </label>
+      </div>
+
+      <div class="sim-layout">
+        <div class="canvas-wrap">
+          <canvas id="simCanvas" width="960" height="500"></canvas>
+          <div class="decision-overlay" id="decisionMessage">AI ready. Press start.</div>
+        </div>
+        <aside class="dashboard">
+          <h3>Data Science Dashboard</h3>
+          <div class="metric">
+            <span>Speed</span>
+            <strong id="dashSpeed">70 km/h</strong>
+          </div>
+          <div class="metric">
+            <span>Distance to nearest obstacle</span>
+            <strong id="dashDistance">-- m</strong>
+          </div>
+          <div class="metric">
+            <span>Decision</span>
+            <strong id="dashDecision">Idle</strong>
+          </div>
+
+          <div class="chart">
+            <h4>Sensor Confidence</h4>
+            <div class="bars">
+              <div class="bar"><i id="barObstacle"></i><span>Obstacle</span></div>
+              <div class="bar"><i id="barLane"></i><span>Lane Clear</span></div>
+              <div class="bar"><i id="barSignal"></i><span>Signal State</span></div>
+            </div>
+          </div>
+
+          <div class="logs">
+            <h4>Real-time AI Decision Logs</h4>
+            <ul id="decisionLogs"></ul>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="how" class="panel">
+      <h2>How Self-Driving Works</h2>
+      <p>
+        This simulator combines rule-based JavaScript motion planning with a lightweight Flask API that
+        emulates AI decisions. Sensors estimate distance to obstacles, traffic signal status, and lane safety.
+        The car then decides whether to maintain speed, brake, or switch lanes.
+      </p>
+      <ul>
+        <li><strong>Perception:</strong> Detect vehicles, pedestrians, and static obstacles.</li>
+        <li><strong>Prediction:</strong> Estimate how nearby objects will move over time.</li>
+        <li><strong>Planning:</strong> Choose safe actions such as stopping at red lights.</li>
+        <li><strong>Control:</strong> Smoothly steer and adjust speed to execute actions.</li>
+      </ul>
+    </section>
+
+    <section id="about" class="panel">
+      <h2>About Project</h2>
+      <p>
+        Built as a mini autonomous driving simulator suitable for a BCA Data Science final year project,
+        this web app demonstrates human-readable AI logic, UI animation, and data-driven feedback.
+      </p>
+    </section>
+  </main>
+
+  <footer>
+    <p>Autonomous Drive Lab • AI + Data Science Demo</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
